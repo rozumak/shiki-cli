@@ -1,0 +1,33 @@
+{
+    "name": "shiki-cli",
+    "version": "1.0.0",
+    "description": "A simple CLI app that applies syntax highlighting by using shiki to a file",
+    "main": "index.js",
+    "bin": {
+        "highlight": "./index.js"
+    },
+    "scripts": {
+        "build": "pkg . --compress Brotli --no-bytecode --public-packages \"*\" --public"
+    },
+    "pkg": {
+        "assets": [
+            "node_modules/shiki/languages/*",
+            "node_modules/shiki/themes/*",
+            "node_modules/vscode-oniguruma/release/onig.wasm"
+        ],
+        "targets": [
+            "node16-macos-x64",
+            "node16-macos-arm64",
+            "node16-win-x64",
+            "node16-win-arm64",
+            "node16-linuxstatic-x64",
+            "node16-linuxstatic-arm64",
+            "node16-linuxstatic-armv7"
+        ],
+        "outputPath": "dist"
+    },
+    "dependencies": {
+        "arg": "^5.0.2",
+        "shiki": "^0.14.1"
+    }
+}
