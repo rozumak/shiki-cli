@@ -1,13 +1,20 @@
 {
-    "name": "shiki-cli",
+    "name": "shikicli",
     "version": "1.0.0",
-    "description": "A simple CLI app that applies syntax highlighting by using shiki to a file",
+    "description": "A simple CLI app that applies syntax highlighting to a file using shiki",
     "main": "index.js",
     "bin": {
         "highlight": "./index.js"
     },
     "scripts": {
-        "build": "pkg . --compress Brotli --no-bytecode --public-packages \"*\" --public"
+        "build": "pkg . --compress Brotli --no-bytecode --public-packages \"*\" --public",
+        "prebuild": "rimraf dist",
+        "postbuild": "move-file dist/shikicli-linuxstatic-x64 dist/shikicli-linux-x64 && move-file dist/shikicli-linuxstatic-arm64 dist/shikicli-linux-arm64 && move-file dist/shikicli-linuxstatic-armv7 dist/shikicli-linux-armv7"
+    },
+    "devDependencies": {
+        "move-file-cli": "^3.0.0",
+        "pkg": "^5.8.0",
+        "rimraf": "^3.0.2"
     },
     "pkg": {
         "assets": [
