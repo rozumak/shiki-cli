@@ -43,4 +43,4 @@ shikicli --input [input file path] --output [output file path] --language [input
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the [MIT License](https://opensource.org/license/mit/).
